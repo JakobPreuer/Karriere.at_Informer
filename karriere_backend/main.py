@@ -52,6 +52,7 @@ def write_to_db(db_connection, job_id_and_name):
     if len(rows_to_insert) > 0:
         db_cursor.executemany('INSERT INTO jobs values (?,?,?)', rows_to_insert)
         db_connection.commit()
+    db_cursor.close()
     return
 
 def get_all_db_entries(db_cursor):
